@@ -1,7 +1,36 @@
 {
+  "compilerOptions": {
+    "allowJs": true,
+    "lib": ["deno.window"],
+    "strict": true
+  },
   "imports": {
     // The dollar sign in front of "std" isn't special - it's an optional
     // convention to show that $std is an alias set up in an import map
     "$std/": "https://deno.land/std@0.224.0/"
-  }
+  },
+  "tasks": {
+    "start": "deno run --allow-read src/main.ts"
+  },
+  "lint": {
+    "include": ["src/"],
+    "exclude": ["src/testdata/", "src/fixtures/**/*.ts"],
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["ban-untagged-todo"],
+      "exclude": ["no-unused-vars"]
+    }
+  },
+  "fmt": {
+    "useTabs": true,
+    "lineWidth": 80,
+    "indentWidth": 4,
+    "semiColons": true,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": ["src/"],
+    "exclude": ["README.md", "src/fixtures/**/*.ts"]
+  },
+  "nodeModulesDir": true,
+  "exclude": ["dist/"]
 }
