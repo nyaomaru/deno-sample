@@ -1,12 +1,18 @@
-import { PageProps } from "$fresh/server.ts";
+import { PageProps, RouteConfig } from "$fresh/server.ts";
+
+export const config: RouteConfig = {
+  skipInheritedLayouts: true,
+};
 
 export default function GreetPage(props: PageProps) {
   const { name } = props.params;
   return (
     <main>
-      <div class="px-4 py-8 mx-auto bg-cyan-300 h-screen">
-        <p>Greetings to you, {name}!</p>
-      </div>
+      <p>Greetings to you, {name}!</p>
+      <p>
+        This page is <em>not</em>{" "}
+        applied layout because I want to check ignore layout config.
+      </p>
     </main>
   );
 }

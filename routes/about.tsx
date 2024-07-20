@@ -1,4 +1,8 @@
-import { Handlers } from "$fresh/server.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
+
+const loadFooValue = async () => {
+    return "nyaomaru";
+};
 
 export const handler: Handlers = {
     async GET(_req, ctx) {
@@ -8,13 +12,15 @@ export const handler: Handlers = {
     },
 };
 
-export default function AboutPage() {
+export default async function AboutPage(props: PageProps) {
+    const value = await loadFooValue();
+
     return (
         <main>
-            <div class="px-4 py-8 mx-auto bg-cyan-300 h-screen">
-                <h1>About</h1>
-                <p>This is the about page.</p>
-            </div>
+            <h1>About</h1>
+            <p>This is the about page.</p>
+            <div>You are on the page '{props.url.href}'.</div>
+            <p>foo is: {value}</p>
         </main>
     );
 }
