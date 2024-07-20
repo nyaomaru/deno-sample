@@ -19,7 +19,7 @@ export const handler: Handlers<Data> = {
 export default function Page({ data }: PageProps<Data>) {
     const { results, query } = data;
     return (
-        <div class="px-4 py-8 mx-auto bg-cyan-300 h-screen">
+        <>
             <h1 class="text-4xl font-bold">Search</h1>
             <form class="mt-4">
                 <input
@@ -47,6 +47,6 @@ export default function Page({ data }: PageProps<Data>) {
                     </ul>
                 </article>
             </div>
-        </div>
+        </>
     );
 }
