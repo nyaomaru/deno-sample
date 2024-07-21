@@ -1,4 +1,4 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
+import { Handlers, PageProps, RouteContext } from "$fresh/server.ts";
 
 const loadFooValue = async () => {
     return "nyaomaru";
@@ -12,8 +12,21 @@ export const handler: Handlers = {
     },
 };
 
-export default async function AboutPage(props: PageProps) {
+export default async function AboutPage(props: PageProps, ctx: RouteContext) {
     const value = await loadFooValue();
+
+    if (value === null) {
+        return ctx.renderNotFound();
+    }
+
+    if (value === "redirect") {
+        const headers = new Headers();
+        headers.set("location", "/search");
+        return new Response(null, {
+            status: 302,
+            headers,
+        });
+    }
 
     return (
         <main>
