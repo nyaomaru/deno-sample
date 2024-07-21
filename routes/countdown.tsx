@@ -1,6 +1,7 @@
+import { defineRoute } from "$fresh/server.ts";
 import Countdown from "../islands/Countdown.tsx";
 
-export default function Page() {
+export default defineRoute(async (req, ctx) => {
     const date = new Date();
     date.setHours(date.getHours() + 1);
     return (
@@ -11,4 +12,4 @@ export default function Page() {
             </p>
         </article>
     );
-}
+});
