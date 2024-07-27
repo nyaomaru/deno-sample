@@ -1,16 +1,23 @@
-import type { Signal } from "@preact/signals";
+import { useSignal } from "@preact/signals";
+import { ComponentChildren } from "preact";
 import { Button } from "../components/Button.tsx";
+import { Card } from "../components/Card.tsx";
 
-interface CounterProps {
-  count: Signal<number>;
+interface Props {
+  children: ComponentChildren;
 }
 
-export default function Counter(props: CounterProps) {
+export default function MyIsland({ children }: Props) {
+  const count = useSignal(0);
+
   return (
-    <div class="flex gap-8 py-6">
-      <Button onClick={() => props.count.value -= 1}>-1</Button>
-      <p class="text-3xl tabular-nums">{props.count}</p>
-      <Button onClick={() => props.count.value += 1}>+1</Button>
-    </div>
+    <Card title={"Counter"}>
+      <div class="flex gap-8">
+        <Button onClick={() => count.value -= 1}>-</Button>
+        <p class="text-3xl tabular-nums">{count}</p>
+        <Button onClick={() => (count.value += 1)}>+</Button>
+      </div>
+      {children}
+    </Card>
   );
 }
