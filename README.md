@@ -1,6 +1,6 @@
 # 🦕 deno_sample
 
-This project is deno with fresh sample project
+This project is deno with 🍋fresh🍋 sample project
 
 ## 🚀 Get started
 
