@@ -1,4 +1,6 @@
 import { Handlers, PageProps, RouteContext } from "$fresh/server.ts";
+import { Partial } from "$fresh/runtime.ts";
+import NextContentButton from "../islands/NextContentButton.tsx";
 
 const loadFooValue = async () => {
     return "nyaomaru";
@@ -29,11 +31,16 @@ export default async function AboutPage(props: PageProps, ctx: RouteContext) {
     }
 
     return (
-        <main>
-            <h1>About</h1>
+        <main f-client-nav>
+            <h1 class="text-4xl font-bold">About</h1>
             <p>This is the about page.</p>
-            <div>You are on the page '{props.url.href}'.</div>
-            <p>foo is: {value}</p>
+            <Partial name="about-content">
+                <div>You are on the page '{props.url.href}'.</div>
+                <p>foo is: {value}</p>
+            </Partial>
+            <div class="mt-4">
+                <NextContentButton name="Next Content" />
+            </div>
         </main>
     );
 }

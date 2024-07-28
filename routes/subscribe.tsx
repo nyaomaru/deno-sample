@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const handler: Handlers<Props> = {
-    async GET(req, ctx) {
+    async GET(_req, ctx) {
         return await ctx.render({
             message: null,
         });
