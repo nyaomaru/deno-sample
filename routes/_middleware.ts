@@ -5,7 +5,7 @@ interface State {
 }
 
 export async function handler(
-    req: Request,
+    _req: Request,
     ctx: FreshContext<State>,
 ) {
     ctx.state.data = "myData";

@@ -7,7 +7,7 @@ interface Props {
   children: ComponentChildren;
 }
 
-export default function MyIsland({ children }: Props) {
+export default function Counter({ children }: Props) {
   const count = useSignal(0);
 
   return (
@@ -17,7 +17,7 @@ export default function MyIsland({ children }: Props) {
         <p class="text-3xl tabular-nums">{count}</p>
         <Button onClick={() => (count.value += 1)}>+</Button>
       </div>
-      {children}
+      <div class="mt-4">{children}</div>
     </Card>
   );
 }
