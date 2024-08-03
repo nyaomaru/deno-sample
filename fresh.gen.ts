@@ -15,6 +15,7 @@ import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $greet_middleware from "./routes/greet/_middleware.ts";
 import * as $index from "./routes/index.tsx";
 import * as $partials_about_id_ from "./routes/partials/about/[id].tsx";
+import * as $projects_id_ from "./routes/projects/[id].tsx";
 import * as $search from "./routes/search.tsx";
 import * as $subscribe from "./routes/subscribe.tsx";
 import * as $Countdown from "./islands/Countdown.tsx";
@@ -37,6 +38,7 @@ const manifest = {
     "./routes/greet/_middleware.ts": $greet_middleware,
     "./routes/index.tsx": $index,
     "./routes/partials/about/[id].tsx": $partials_about_id_,
+    "./routes/projects/[id].tsx": $projects_id_,
     "./routes/search.tsx": $search,
     "./routes/subscribe.tsx": $subscribe,
   },
