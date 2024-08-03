@@ -4,7 +4,7 @@ import Counter from "../islands/Counter.tsx";
 
 const nameList = ["Alice", "Bob", "Charlie", "David", "Eve"];
 
-export const handler: Handlers<any, { data: string }> = {
+export const handler: Handlers<unknown, { data: string }> = {
   GET(_req, ctx) {
     return ctx.render(ctx.state.data);
   },
@@ -34,6 +34,12 @@ export default function Home({ data }: PageProps<string>) {
         <Link text="Go Greet Page" href={`greet/${name}`} />
         <Link text="Go Search Page" href="search" />
         <Link text="Go Countdown Page" href="countdown" />
+      </div>
+      <div class="my-4">
+        <Link
+          text="Go Projects Page"
+          href={`projects/${Math.round(Math.random()) + 1}`}
+        />
       </div>
 
       <p class="my-4">
