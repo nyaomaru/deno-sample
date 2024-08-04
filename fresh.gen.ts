@@ -10,6 +10,7 @@ import * as $_middleware from "./routes/_middleware.ts";
 import * as $about from "./routes/about.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $api_random_uuid from "./routes/api/random-uuid.ts";
+import * as $chart from "./routes/chart.tsx";
 import * as $countdown from "./routes/countdown.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $greet_middleware from "./routes/greet/_middleware.ts";
@@ -18,6 +19,7 @@ import * as $partials_about_id_ from "./routes/partials/about/[id].tsx";
 import * as $projects_id_ from "./routes/projects/[id].tsx";
 import * as $search from "./routes/search.tsx";
 import * as $subscribe from "./routes/subscribe.tsx";
+import * as $Chart from "./islands/Chart.tsx";
 import * as $Countdown from "./islands/Countdown.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $NextContentButton from "./islands/NextContentButton.tsx";
@@ -33,6 +35,7 @@ const manifest = {
     "./routes/about.tsx": $about,
     "./routes/api/joke.ts": $api_joke,
     "./routes/api/random-uuid.ts": $api_random_uuid,
+    "./routes/chart.tsx": $chart,
     "./routes/countdown.tsx": $countdown,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/greet/_middleware.ts": $greet_middleware,
@@ -43,6 +46,7 @@ const manifest = {
     "./routes/subscribe.tsx": $subscribe,
   },
   islands: {
+    "./islands/Chart.tsx": $Chart,
     "./islands/Countdown.tsx": $Countdown,
     "./islands/Counter.tsx": $Counter,
     "./islands/NextContentButton.tsx": $NextContentButton,
