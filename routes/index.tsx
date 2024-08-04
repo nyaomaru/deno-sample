@@ -40,6 +40,7 @@ export default function Home({ data }: PageProps<string>) {
           text="Go Projects Page"
           href={`projects/${Math.round(Math.random()) + 1}`}
         />
+        <Link text="Go Chart Page" href="chart" />
       </div>
 
       <p class="my-4">
