@@ -1,5 +1,6 @@
 import ChartIsland from "../islands/Chart.tsx";
 import { ChartColors } from "$fresh_charts/utils.ts";
+import { Link } from "../components/Link.tsx";
 
 const createRandomNumber = () => {
   return Math.floor(Math.random() * 100);
@@ -38,6 +39,9 @@ export default function Home() {
             ],
           }}
         />
+      </div>
+      <div class="mt-4">
+        <Link text="Back" href="/" color="secondary" />
       </div>
     </>
   );
