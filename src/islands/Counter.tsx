@@ -11,13 +11,13 @@ export default function Counter({ children }: Props) {
   const count = useSignal(0);
 
   return (
-    <Card title={"Counter"}>
-      <div class="flex gap-8">
+    <Card title="Counter">
+      <div class="flex gap-8 items-center justify-center">
         <Button onClick={() => count.value -= 1}>-</Button>
         <p class="text-3xl tabular-nums">{count}</p>
         <Button onClick={() => (count.value += 1)}>+</Button>
       </div>
-      <div class="mt-4">{children}</div>
+      <div>{children}</div>
     </Card>
   );
 }

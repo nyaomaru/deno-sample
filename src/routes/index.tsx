@@ -22,25 +22,37 @@ export default function Home({ data }: PageProps<string>) {
         height="128"
         alt="the Fresh logo: a sliced lemon dripping with juice"
       />
-      <h1 class="text-4xl font-bold">Nyaomaru Deno Sample</h1>
-      <p class="my-4">
-        I am a cat being!!
-      </p>
-      <Counter>
-        <p>This text is rendered on the server</p>
-      </Counter>
-      <div class="my-4">
-        <Link text="Go About Page" href="about" />
-        <Link text="Go Greet Page" href={`greet/${name}`} />
-        <Link text="Go Search Page" href="search" />
-        <Link text="Go Countdown Page" href="countdown" />
+      <div class="my-4 flex flex-col items-center justify-center">
+        <h1 class="text-4xl font-bold">Nyaomaru Deno Sample</h1>
+        <p class="my-4">
+          I am a cat being!!
+        </p>
       </div>
-      <div class="my-4">
-        <Link
-          text="Go Projects Page"
-          href={`projects/${Math.round(Math.random()) + 1}`}
-        />
-        <Link text="Go Chart Page" href="chart" />
+
+      <div class="my-4 flex flex-col items-center justify-center">
+        <h2 class="text-2xl font-bold">Counter Test</h2>
+        <div class="my-4">
+          <Counter>
+            <p class="mt-4">This text is rendered on the server</p>
+          </Counter>
+        </div>
+      </div>
+
+      <div class="my-4 flex flex-col items-center justify-center">
+        <h2 class="text-2xl font-bold">Page Buttons</h2>
+        <div class="my-4 flex gap-4">
+          <Link text="Go About Page" href="about" />
+          <Link text="Go Greet Page" href={`greet/${name}`} />
+          <Link text="Go Search Page" href="search" />
+          <Link text="Go Countdown Page" href="countdown" />
+        </div>
+        <div class="my-4 flex gap-4">
+          <Link
+            text="Go Projects Page"
+            href={`projects/${Math.round(Math.random()) + 1}`}
+          />
+          <Link text="Go Chart Page" href="chart" />
+        </div>
       </div>
 
       <p class="my-4">

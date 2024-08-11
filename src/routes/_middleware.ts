@@ -1,15 +1,15 @@
 import { FreshContext } from "$fresh/server.ts";
 
 interface State {
-    data: string;
+  data: string;
 }
 
 export async function handler(
-    _req: Request,
-    ctx: FreshContext<State>,
+  _req: Request,
+  ctx: FreshContext<State>,
 ) {
-    ctx.state.data = "myData";
-    const resp = await ctx.next();
-    resp.headers.set("server", "fresh server");
-    return resp;
+  ctx.state.data = "myData";
+  const resp = await ctx.next();
+  resp.headers.set("server", "fresh server");
+  return resp;
 }
