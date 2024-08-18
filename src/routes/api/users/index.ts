@@ -1,11 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
-
-export const kv = await Deno.openKv();
-
-interface User {
-  id: string;
-  name: string;
-}
+import { kv } from "#src/services/database.ts";
+import type { User } from "#src/shared/api.ts";
 
 export const handler: Handlers<User | null> = {
   async POST(req, _ctx) {
