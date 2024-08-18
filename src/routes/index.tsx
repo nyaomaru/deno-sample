@@ -52,6 +52,7 @@ export default function Home({ data }: PageProps<string>) {
             href={`projects/${Math.round(Math.random()) + 1}`}
           />
           <Link text="Go Chart Page" href="chart" />
+          <Link text="Go Markdown Page" href="string" />
         </div>
       </div>
 
