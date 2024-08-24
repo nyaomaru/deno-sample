@@ -35,6 +35,7 @@ export async function handler(
   }
 
   const origin = req.headers.get("Origin") || "*";
+  ctx.state.data = "myData";
   const resp = await ctx.next();
   const headers = resp.headers;
 
@@ -49,7 +50,6 @@ export async function handler(
     `${HTTP_METHOD.POST}, ${HTTP_METHOD.OPTIONS}, ${HTTP_METHOD.GET}, ${HTTP_METHOD.DELETE}, ${HTTP_METHOD.PUT}`,
   );
 
-  ctx.state.data = "myData";
   resp.headers.set("server", "fresh server");
   return resp;
 }

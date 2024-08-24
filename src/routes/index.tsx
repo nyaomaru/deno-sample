@@ -1,4 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { useSignal } from "@preact/signals";
 import { Link } from "../components/Link.tsx";
 import Counter from "../islands/Counter.tsx";
 
@@ -12,6 +13,7 @@ export const handler: Handlers<unknown, { data: string }> = {
 
 export default function Home({ data }: PageProps<string>) {
   const name = nameList[Math.floor(Math.random() * 5)];
+  const count = useSignal(0);
 
   return (
     <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
@@ -30,9 +32,9 @@ export default function Home({ data }: PageProps<string>) {
       </div>
 
       <div class="my-4 flex flex-col items-center justify-center">
-        <h2 class="text-2xl font-bold">Counter Test</h2>
+        <h2 class="text-2xl font-bold">Counter</h2>
         <div class="my-4">
-          <Counter>
+          <Counter count={count}>
             <p class="mt-4">This text is rendered on the server</p>
           </Counter>
         </div>
