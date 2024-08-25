@@ -14,6 +14,7 @@ import * as $api_random_uuid from "./routes/api/random-uuid.ts";
 import * as $api_users_id_ from "./routes/api/users/[id].ts";
 import * as $api_users_index from "./routes/api/users/index.ts";
 import * as $chart from "./routes/chart.tsx";
+import * as $correctCSP from "./routes/correctCSP.tsx";
 import * as $countdown from "./routes/countdown.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $greet_middleware from "./routes/greet/_middleware.ts";
@@ -42,6 +43,7 @@ const manifest = {
     "./routes/api/users/[id].ts": $api_users_id_,
     "./routes/api/users/index.ts": $api_users_index,
     "./routes/chart.tsx": $chart,
+    "./routes/correctCSP.tsx": $correctCSP,
     "./routes/countdown.tsx": $countdown,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/greet/_middleware.ts": $greet_middleware,

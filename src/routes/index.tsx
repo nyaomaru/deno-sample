@@ -1,4 +1,5 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
+import { Handlers, PageProps, RouteConfig } from "$fresh/server.ts";
+import { useCSP } from "$fresh/runtime.ts";
 import { useSignal } from "@preact/signals";
 import { Link } from "../components/Link.tsx";
 import Counter from "../islands/Counter.tsx";
@@ -14,6 +15,21 @@ export const handler: Handlers<unknown, { data: string }> = {
 export default function Home({ data }: PageProps<string>) {
   const name = nameList[Math.floor(Math.random() * 5)];
   const count = useSignal(0);
+
+  useCSP((csp) => {
+    if (!csp.directives.styleSrc) {
+      csp.directives.styleSrc = [];
+    }
+    if (!csp.directives.imgSrc) {
+      csp.directives.imgSrc = [];
+    }
+    if (!csp.directives.scriptSrc) {
+      csp.directives.scriptSrc = [];
+    }
+    csp.directives.styleSrc.push("http://localhost:8000/styles.css");
+    csp.directives.imgSrc.push("http://localhost:8000/logo.svg");
+    csp.directives.scriptSrc.push("http://localhost:8000");
+  });
 
   return (
     <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
@@ -55,6 +71,7 @@ export default function Home({ data }: PageProps<string>) {
           />
           <Link text="Go Chart Page" href="chart" />
           <Link text="Go Markdown Page" href="string" />
+          <Link text="Go CSP Page" href="correctCSP" />
         </div>
       </div>
 
@@ -64,3 +81,7 @@ export default function Home({ data }: PageProps<string>) {
     </div>
   );
 }
+
+export const config: RouteConfig = {
+  csp: true,
+};
