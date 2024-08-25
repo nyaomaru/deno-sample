@@ -40,11 +40,11 @@ export default async function AboutPage(props: PageProps, ctx: RouteContext) {
           <div>You are on the page '{props.url.href}'.</div>
           <p>foo is: {value}</p>
         </Partial>
-        <div class="mt-4">
+        <div class="mt-8">
           <NextContentButton name="Next Content" />
         </div>
       </main>
-      <div class="mt-4">
+      <div class="mt-8">
         <Link text="Back" href="/" color="secondary" />
       </div>
     </>

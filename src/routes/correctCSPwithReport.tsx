@@ -1,7 +1,7 @@
 import { RouteConfig, RouteContext } from "$fresh/server.ts";
 import { useCSP } from "$fresh/runtime.ts";
 
-export default function Home(req: Request, ctx: RouteContext) {
+export default function Home(_req: Request, _ctx: RouteContext) {
   useCSP((csp) => {
     csp.reportOnly = true;
     if (!csp.directives.styleSrc) {
