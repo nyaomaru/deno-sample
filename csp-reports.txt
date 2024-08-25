@@ -1,0 +1,43 @@
+{
+  "csp-report": {
+    "document-uri": "http://localhost:8000/correctCSPwithReport",
+    "referrer": "http://localhost:8000/",
+    "violated-directive": "style-src-elem",
+    "effective-directive": "style-src-elem",
+    "original-policy": "default-src 'none'; style-src 'unsafe-inline' http://www.example.com; report-uri http://localhost:8000/reportHandler; script-src 'nonce-71d90af6c22f47f3b28399209fdd8dc5'; connect-src 'self'",
+    "disposition": "report",
+    "blocked-uri": "http://localhost:8000/example.css",
+    "line-number": 1,
+    "source-file": "http://localhost:8000/correctCSPwithReport",
+    "status-code": 200,
+    "script-sample": ""
+  }
+}
+{
+  "csp-report": {
+    "document-uri": "http://localhost:8000/correctCSPwithReport",
+    "referrer": "http://localhost:8000/",
+    "violated-directive": "style-src-elem",
+    "effective-directive": "style-src-elem",
+    "original-policy": "default-src 'none'; style-src 'unsafe-inline' http://www.example.com; report-uri http://localhost:8000/reportHandler; script-src 'nonce-71d90af6c22f47f3b28399209fdd8dc5'; connect-src 'self'",
+    "disposition": "report",
+    "blocked-uri": "http://localhost:8000/styles.css",
+    "line-number": 1,
+    "source-file": "http://localhost:8000/correctCSPwithReport",
+    "status-code": 200,
+    "script-sample": ""
+  }
+}
+{
+  "csp-report": {
+    "document-uri": "http://localhost:8000/correctCSPwithReport",
+    "referrer": "http://localhost:8000/",
+    "violated-directive": "img-src",
+    "effective-directive": "img-src",
+    "original-policy": "default-src 'none'; style-src 'unsafe-inline' http://www.example.com; report-uri http://localhost:8000/reportHandler; script-src 'nonce-71d90af6c22f47f3b28399209fdd8dc5'; connect-src 'self'",
+    "disposition": "report",
+    "blocked-uri": "http://localhost:8000/favicon.ico",
+    "status-code": 200,
+    "script-sample": ""
+  }
+}

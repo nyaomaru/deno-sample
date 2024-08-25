@@ -71,7 +71,7 @@ export default function Home({ data }: PageProps<string>) {
           />
           <Link text="Go Chart Page" href="chart" />
           <Link text="Go Markdown Page" href="string" />
-          <Link text="Go CSP Page" href="correctCSP" />
+          <Link text="Go CSP Page" href="correctCSPwithReport" />
         </div>
       </div>
 
