@@ -1,5 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Link } from "../../components/Link.tsx";
+import { Link } from "#src/components/Link.tsx";
 
 const projects = [{ id: 1, name: "Project 1", stars: 10 }, {
   id: 2,

@@ -1,7 +1,7 @@
 import { Handlers, PageProps, RouteContext } from "$fresh/server.ts";
 import { Partial } from "$fresh/runtime.ts";
-import NextContentButton from "../islands/NextContentButton.tsx";
-import { Link } from "../components/Link.tsx";
+import NextContentButton from "#src/islands/NextContentButton.tsx";
+import { Link } from "#src/components/Link.tsx";
 
 const loadFooValue = async () => {
   return "nyaomaru";

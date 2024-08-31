@@ -1,5 +1,5 @@
 import { Handlers, type PageProps } from "$fresh/server.ts";
-import { Link } from "../components/Link.tsx";
+import { Link } from "#src/components/Link.tsx";
 
 interface Props {
   message: string | null;

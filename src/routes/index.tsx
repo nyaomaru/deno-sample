@@ -1,8 +1,8 @@
 import { Handlers, PageProps, RouteConfig } from "$fresh/server.ts";
 import { useCSP } from "$fresh/runtime.ts";
 import { useSignal } from "@preact/signals";
-import { Link } from "../components/Link.tsx";
-import Counter from "../islands/Counter.tsx";
+import { Link } from "#src/components/Link.tsx";
+import Counter from "#src/islands/Counter.tsx";
 
 const nameList = ["Alice", "Bob", "Charlie", "David", "Eve"];
 
@@ -59,19 +59,25 @@ export default function Home({ data }: PageProps<string>) {
       <div class="my-4 flex flex-col items-center justify-center">
         <h2 class="text-2xl font-bold">Page Buttons</h2>
         <div class="my-4 flex gap-4">
-          <Link text="Go About Page" href="about" />
-          <Link text="Go Greet Page" href={`greet/${name}`} />
-          <Link text="Go Search Page" href="search" />
-          <Link text="Go Countdown Page" href="countdown" />
+          <Link text="About" href="about" />
+          <Link text="Greet" href={`greet/${name}`} />
+          <Link text="Search" href="search" />
+          <Link text="Countdown" href="countdown" />
         </div>
         <div class="my-4 flex gap-4">
           <Link
-            text="Go Projects Page"
+            text="Projects"
             href={`projects/${Math.round(Math.random()) + 1}`}
           />
-          <Link text="Go Chart Page" href="chart" />
-          <Link text="Go Markdown Page" href="string" />
-          <Link text="Go CSP Page" href="correctCSPwithReport" />
+          <Link text="Chart" href="chart" />
+          <Link text="Markdown" href="string" />
+          <Link text="CSP" href="correctCSPwithReport" />
+        </div>
+        <div class="my-4 flex gap-4">
+          <Link
+            text="Map"
+            href="map"
+          />
         </div>
       </div>
 

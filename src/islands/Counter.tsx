@@ -1,7 +1,7 @@
 import { Signal } from "@preact/signals";
 import { ComponentChildren } from "preact";
-import { Button } from "../components/Button.tsx";
-import { Card } from "../components/Card.tsx";
+import { Button } from "#src/components/Button.tsx";
+import { Card } from "#src/components/Card.tsx";
 
 interface Props {
   count: Signal<number>;

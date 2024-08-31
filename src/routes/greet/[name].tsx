@@ -1,6 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps, RouteConfig } from "$fresh/server.ts";
-import { Link } from "../../components/Link.tsx";
+import { Link } from "#src/components/Link.tsx";
 
 export const config: RouteConfig = {
   skipInheritedLayouts: true,
