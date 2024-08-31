@@ -1,6 +1,6 @@
-import ChartIsland from "../islands/Chart.tsx";
+import ChartIsland from "#src/islands/Chart.tsx";
 import { ChartColors } from "$fresh_charts/utils.ts";
-import { Link } from "../components/Link.tsx";
+import { Link } from "#src/components/Link.tsx";
 
 const createRandomNumber = () => {
   return Math.floor(Math.random() * 100);

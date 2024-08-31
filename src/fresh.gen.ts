@@ -19,6 +19,7 @@ import * as $countdown from "./routes/countdown.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $greet_middleware from "./routes/greet/_middleware.ts";
 import * as $index from "./routes/index.tsx";
+import * as $map from "./routes/map.tsx";
 import * as $partials_about_id_ from "./routes/partials/about/[id].tsx";
 import * as $projects_id_ from "./routes/projects/[id].tsx";
 import * as $reportHandler from "./routes/reportHandler.ts";
@@ -27,6 +28,7 @@ import * as $subscribe from "./routes/subscribe.tsx";
 import * as $Chart from "./islands/Chart.tsx";
 import * as $Countdown from "./islands/Countdown.tsx";
 import * as $Counter from "./islands/Counter.tsx";
+import * as $MapIsland from "./islands/MapIsland.tsx";
 import * as $NextContentButton from "./islands/NextContentButton.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
@@ -49,6 +51,7 @@ const manifest = {
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/greet/_middleware.ts": $greet_middleware,
     "./routes/index.tsx": $index,
+    "./routes/map.tsx": $map,
     "./routes/partials/about/[id].tsx": $partials_about_id_,
     "./routes/projects/[id].tsx": $projects_id_,
     "./routes/reportHandler.ts": $reportHandler,
@@ -59,6 +62,7 @@ const manifest = {
     "./islands/Chart.tsx": $Chart,
     "./islands/Countdown.tsx": $Countdown,
     "./islands/Counter.tsx": $Counter,
+    "./islands/MapIsland.tsx": $MapIsland,
     "./islands/NextContentButton.tsx": $NextContentButton,
   },
   baseUrl: import.meta.url,

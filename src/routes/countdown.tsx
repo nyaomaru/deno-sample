@@ -1,6 +1,6 @@
 import { defineRoute } from "$fresh/server.ts";
-import Countdown from "../islands/Countdown.tsx";
-import { Link } from "../components/Link.tsx";
+import Countdown from "#src/islands/Countdown.tsx";
+import { Link } from "#src/components/Link.tsx";
 
 export default defineRoute(async (_req, _ctx) => {
   const date = new Date();
