@@ -17,5 +17,5 @@ Then you can access to http://localhost:8000/
 If you try the deno test, you could run below command.
 
 ```sh
-deno test --allow-read --allow-env --allow-net
+deno task test
 ```

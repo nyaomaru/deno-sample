@@ -70,7 +70,7 @@ export default function Home({ data }: PageProps<string>) {
             href={`projects/${Math.round(Math.random()) + 1}`}
           />
           <Link text="Chart" href="chart" />
-          <Link text="Markdown" href="string" />
+          <Link text="Markdown" href="markdowns/string" />
           <Link text="CSP" href="correctCSPwithReport" />
         </div>
         <div class="my-4 flex gap-4">

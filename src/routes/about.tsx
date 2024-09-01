@@ -3,7 +3,7 @@ import { Partial } from "$fresh/runtime.ts";
 import NextContentButton from "#src/islands/NextContentButton.tsx";
 import { Link } from "#src/components/Link.tsx";
 
-const loadFooValue = async () => {
+const loadFooValue = () => {
   return "nyaomaru";
 };
 

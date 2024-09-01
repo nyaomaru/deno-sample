@@ -2,7 +2,7 @@ import { defineRoute } from "$fresh/server.ts";
 import { Link } from "#src/components/Link.tsx";
 import { MapIsland } from "#src/islands/MapIsland.tsx";
 
-export default defineRoute(async (_req, _ctx) => {
+export default defineRoute((_req, _ctx) => {
   return (
     <>
       <div>

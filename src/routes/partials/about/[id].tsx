@@ -6,7 +6,7 @@ const contents = [
   "bla bla bla",
 ];
 
-const loadContent = async (id: string) => {
+const loadContent = (id: string) => {
   const currentContent = contents[Number(id) % 2];
 
   return (
@@ -24,8 +24,8 @@ export const config: RouteConfig = {
   skipInheritedLayouts: true,
 };
 
-export default defineRoute(async (req, ctx) => {
-  const content = await loadContent(ctx.params.id);
+export default defineRoute((_req, ctx) => {
+  const content = loadContent(ctx.params.id);
 
   return (
     <Partial name="about-content">
