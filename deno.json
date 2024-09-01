@@ -7,7 +7,8 @@
     "start": "deno run -A --watch=src/static/,src/routes/ --unstable src/dev.ts",
     "build": "deno run -A --unstable src/dev.ts  build",
     "preview": "deno run -A --unstable src/main.ts",
-    "update": "deno run -A -r https://fresh.deno.dev/update ."
+    "update": "deno run -A -r https://fresh.deno.dev/update .",
+    "test": "deno test --allow-read --allow-env --allow-net --unstable"
   },
   "lint": { "rules": { "tags": ["fresh", "recommended"] } },
   "exclude": ["**/_fresh/*"],
