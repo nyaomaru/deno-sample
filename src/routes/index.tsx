@@ -44,9 +44,6 @@ export default function Home({ data }: PageProps<string>) {
     }
   });
 
-  console.log("ENV", Deno.env.get("DENO_ENV"));
-  console.log("DENO_DEPLOYMENT_ID", Deno.env.get("DENO_DEPLOYMENT_ID"));
-
   return (
     <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
       <img
