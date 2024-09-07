@@ -17,12 +17,6 @@ export default function Home({ data }: PageProps<string>) {
   const count = useSignal(0);
 
   useCSP((csp) => {
-    const baseUrl = Deno.env.get("DENO_ENV") === "development"
-      ? "http://localhost:8000"
-      : Deno.env.get("DENO_ENV") === "preview"
-      ? "https://nyaomaru-deno-sample--*.deno.dev"
-      : "https://nyaomaru-deno-sample*.deno.dev";
-
     if (!csp.directives.styleSrc) {
       csp.directives.styleSrc = [];
     }
@@ -32,12 +26,26 @@ export default function Home({ data }: PageProps<string>) {
     if (!csp.directives.scriptSrc) {
       csp.directives.scriptSrc = [];
     }
+    const baseUrl = Deno.env.get("DENO_ENV") === "development"
+      ? "http://localhost:8000"
+      : "https://nyaomaru-deno-sample.deno.dev";
+
     csp.directives.styleSrc.push(`${baseUrl}/styles.css`);
     csp.directives.imgSrc.push(`${baseUrl}/logo.svg`);
     csp.directives.scriptSrc.push(baseUrl);
 
-    console.log("DENO_DEPLOY_ID", Deno.env.get("DENO_DEPLOYMENT_ID"));
+    if (Deno.env.get("DENO_ENV") !== "production") {
+      const previewUrl = `https://nyaomaru-deno-sample-${
+        Deno.env.get("DENO_DEPLOYMENT_ID")
+      }.deno.dev`;
+      csp.directives.styleSrc.push(`${previewUrl}/styles.css`);
+      csp.directives.imgSrc.push(`${previewUrl}/logo.svg`);
+      csp.directives.scriptSrc.push(previewUrl);
+    }
   });
+
+  console.log("ENV", Deno.env.get("DENO_ENV"));
+  console.log("DENO_DEPLOYMENT_ID", Deno.env.get("DENO_DEPLOYMENT_ID"));
 
   return (
     <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
