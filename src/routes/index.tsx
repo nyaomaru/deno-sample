@@ -26,9 +26,22 @@ export default function Home({ data }: PageProps<string>) {
     if (!csp.directives.scriptSrc) {
       csp.directives.scriptSrc = [];
     }
-    csp.directives.styleSrc.push("http://localhost:8000/styles.css");
-    csp.directives.imgSrc.push("http://localhost:8000/logo.svg");
-    csp.directives.scriptSrc.push("http://localhost:8000");
+    const baseUrl = Deno.env.get("DENO_ENV") === "development"
+      ? "http://localhost:8000"
+      : "https://nyaomaru-deno-sample.deno.dev";
+
+    csp.directives.styleSrc.push(`${baseUrl}/styles.css`);
+    csp.directives.imgSrc.push(`${baseUrl}/logo.svg`);
+    csp.directives.scriptSrc.push(baseUrl);
+
+    if (Deno.env.get("DENO_ENV") !== "production") {
+      const previewUrl = `https://nyaomaru-deno-sample-${
+        Deno.env.get("DENO_DEPLOYMENT_ID")
+      }.deno.dev`;
+      csp.directives.styleSrc.push(`${previewUrl}/styles.css`);
+      csp.directives.imgSrc.push(`${previewUrl}/logo.svg`);
+      csp.directives.scriptSrc.push(previewUrl);
+    }
   });
 
   return (
