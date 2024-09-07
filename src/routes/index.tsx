@@ -21,7 +21,7 @@ export default function Home({ data }: PageProps<string>) {
       ? "http://localhost:8000"
       : Deno.env.get("DENO_ENV") === "preview"
       ? "https://nyaomaru-deno-sample--*.deno.dev"
-      : "https://nyaomaru-deno-sample.deno.dev";
+      : "https://nyaomaru-deno-sample*.deno.dev";
 
     if (!csp.directives.styleSrc) {
       csp.directives.styleSrc = [];
