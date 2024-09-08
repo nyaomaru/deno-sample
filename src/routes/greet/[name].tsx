@@ -1,6 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageProps, RouteConfig } from "$fresh/server.ts";
-import { Link } from "#src/components/Link.tsx";
+import { PageLayout } from "#src/components/PageLayout.tsx";
 
 export const config: RouteConfig = {
   skipInheritedLayouts: true,
@@ -15,14 +15,13 @@ export default function GreetPage(props: PageProps) {
         <title>Meow</title>
       </Head>
       <main>
-        <h1 class="text-4xl font-bold">Greetings to you, {name}!</h1>
-        <p>
-          This page is <em>not</em>{" "}
-          applied layout because I want to check ignore layout config.
-        </p>
-        <div class="mt-4">
-          <Link text="Back" href="/" color="secondary" />
-        </div>
+        <PageLayout>
+          <h1 class="text-4xl font-bold">Greetings to you, {name}!</h1>
+          <p>
+            This page is <em>not</em>{" "}
+            applied layout because I want to check ignore layout config.
+          </p>
+        </PageLayout>
       </main>
     </>
   );

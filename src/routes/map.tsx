@@ -1,16 +1,11 @@
 import { defineRoute } from "$fresh/server.ts";
-import { Link } from "#src/components/Link.tsx";
+import { PageLayout } from "#src/components/PageLayout.tsx";
 import { MapIsland } from "#src/islands/MapIsland.tsx";
 
 export default defineRoute((_req, _ctx) => {
   return (
-    <>
-      <div>
-        <MapIsland />
-      </div>
-      <div class="mt-4">
-        <Link text="Back" href="/" color="secondary" />
-      </div>
-    </>
+    <PageLayout>
+      <MapIsland />
+    </PageLayout>
   );
 });

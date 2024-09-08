@@ -1,6 +1,6 @@
 import ChartIsland from "#src/islands/Chart.tsx";
 import { ChartColors } from "$fresh_charts/utils.ts";
-import { Link } from "#src/components/Link.tsx";
+import { PageLayout } from "#src/components/PageLayout.tsx";
 
 const createRandomNumber = () => {
   return Math.floor(Math.random() * 100);
@@ -12,7 +12,7 @@ const createChartNumberArray = () => {
 
 export default function Home() {
   return (
-    <>
+    <PageLayout>
       <h1 class="text-4xl font-bold">Chart</h1>
       <div class="mt-4 mx-auto max-w-screen-md">
         <ChartIsland
@@ -40,9 +40,6 @@ export default function Home() {
           }}
         />
       </div>
-      <div class="mt-4">
-        <Link text="Back" href="/" color="secondary" />
-      </div>
-    </>
+    </PageLayout>
   );
 }

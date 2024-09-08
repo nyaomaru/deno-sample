@@ -1,5 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Link } from "#src/components/Link.tsx";
+import { PageLayout } from "#src/components/PageLayout.tsx";
 
 const NAMES = ["Alice", "Bob", "Charlie", "Dave", "Eve", "Frank"];
 
@@ -20,7 +20,7 @@ export const handler: Handlers<Data> = {
 export default function Page({ data }: PageProps<Data>) {
   const { results, query } = data;
   return (
-    <>
+    <PageLayout>
       <h1 class="text-4xl font-bold">Search</h1>
       <form class="mt-4">
         <input
@@ -48,9 +48,6 @@ export default function Page({ data }: PageProps<Data>) {
           </ul>
         </article>
       </div>
-      <div class="mt-4">
-        <Link text="Back" href="/" color="secondary" />
-      </div>
-    </>
+    </PageLayout>
   );
 }

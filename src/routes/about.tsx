@@ -1,7 +1,7 @@
 import { Handlers, PageProps, RouteContext } from "$fresh/server.ts";
 import { Partial } from "$fresh/runtime.ts";
 import NextContentButton from "#src/islands/NextContentButton.tsx";
-import { Link } from "#src/components/Link.tsx";
+import { PageLayout } from "#src/components/PageLayout.tsx";
 
 const loadFooValue = () => {
   return "nyaomaru";
@@ -32,7 +32,7 @@ export default async function AboutPage(props: PageProps, ctx: RouteContext) {
   }
 
   return (
-    <>
+    <PageLayout>
       <main f-client-nav>
         <h1 class="text-4xl font-bold">About</h1>
         <p>This is the about page.</p>
@@ -44,9 +44,6 @@ export default async function AboutPage(props: PageProps, ctx: RouteContext) {
           <NextContentButton name="Next Content" />
         </div>
       </main>
-      <div class="mt-8">
-        <Link text="Back" href="/" color="secondary" />
-      </div>
-    </>
+    </PageLayout>
   );
 }

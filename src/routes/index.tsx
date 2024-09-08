@@ -1,10 +1,21 @@
 import { Handlers, PageProps, RouteConfig } from "$fresh/server.ts";
-import { useCSP } from "$fresh/runtime.ts";
+import { type ContentSecurityPolicy, useCSP } from "$fresh/runtime.ts";
 import { useSignal } from "@preact/signals";
 import { Link } from "#src/components/Link.tsx";
 import Counter from "#src/islands/Counter.tsx";
 
 const nameList = ["Alice", "Bob", "Charlie", "David", "Eve"];
+
+const DOMAIN = {
+  DEVELOPMENT: "http://localhost:8000",
+  PRODUCTION: "https://nyaomaru-deno-sample.deno.dev",
+};
+
+const addCSPUrls = (csp: ContentSecurityPolicy, url: string) => {
+  csp.directives.styleSrc?.push(`${url}/styles.css`);
+  csp.directives.imgSrc?.push(`${url}/logo.svg`);
+  csp.directives.scriptSrc?.push(url);
+};
 
 export const handler: Handlers<unknown, { data: string }> = {
   GET(_req, ctx) {
@@ -17,6 +28,7 @@ export default function Home({ data }: PageProps<string>) {
   const count = useSignal(0);
 
   useCSP((csp) => {
+    csp.reportOnly = true;
     if (!csp.directives.styleSrc) {
       csp.directives.styleSrc = [];
     }
@@ -27,21 +39,16 @@ export default function Home({ data }: PageProps<string>) {
       csp.directives.scriptSrc = [];
     }
     const baseUrl = Deno.env.get("DENO_ENV") === "development"
-      ? "http://localhost:8000"
-      : "https://nyaomaru-deno-sample.deno.dev";
+      ? DOMAIN.DEVELOPMENT
+      : DOMAIN.PRODUCTION;
 
-    csp.directives.styleSrc.push(`${baseUrl}/styles.css`);
-    csp.directives.imgSrc.push(`${baseUrl}/logo.svg`);
-    csp.directives.scriptSrc.push(baseUrl);
+    addCSPUrls(csp, baseUrl);
 
-    if (Deno.env.get("DENO_ENV") !== "production") {
-      const previewUrl = `https://nyaomaru-deno-sample-${
-        Deno.env.get("DENO_DEPLOYMENT_ID")
-      }.deno.dev`;
-      csp.directives.styleSrc.push(`${previewUrl}/styles.css`);
-      csp.directives.imgSrc.push(`${previewUrl}/logo.svg`);
-      csp.directives.scriptSrc.push(previewUrl);
-    }
+    const previewUrl = `https://nyaomaru-deno-sample-${
+      Deno.env.get("DENO_DEPLOYMENT_ID")
+    }.deno.dev`;
+
+    addCSPUrls(csp, previewUrl);
   });
 
   return (
@@ -84,9 +91,6 @@ export default function Home({ data }: PageProps<string>) {
           />
           <Link text="Chart" href="chart" />
           <Link text="Markdown" href="markdowns/string" />
-          <Link text="CSP" href="correctCSPwithReport" />
-        </div>
-        <div class="my-4 flex gap-4">
           <Link
             text="Map"
             href="map"
