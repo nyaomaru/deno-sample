@@ -1,5 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Link } from "#src/components/Link.tsx";
+import { PageLayout } from "#src/components/PageLayout.tsx";
 
 const projects = [{ id: 1, name: "Project 1", stars: 10 }, {
   id: 2,
@@ -35,12 +35,9 @@ export default function ProjectPage(props: PageProps<Project>) {
   }
 
   return (
-    <div>
+    <PageLayout>
       <h1 class="text-4xl font-bold">{props.data.name}</h1>
       <p>{props.data.stars} stars</p>
-      <div class="mt-4">
-        <Link text="Back" href="/" color="secondary" />
-      </div>
-    </div>
+    </PageLayout>
   );
 }

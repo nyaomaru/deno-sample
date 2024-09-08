@@ -1,5 +1,5 @@
 import { Handlers, type PageProps } from "$fresh/server.ts";
-import { Link } from "#src/components/Link.tsx";
+import { PageLayout } from "#src/components/PageLayout.tsx";
 
 interface Props {
   message: string | null;
@@ -35,15 +35,12 @@ export const handler: Handlers<Props> = {
 export default function Upload(props: PageProps<Props>) {
   const { message } = props.data;
   return (
-    <>
+    <PageLayout>
       <form method="post" encType="multipart/form-data">
         <input type="file" name="my-file" />
         <button type="submit">Upload</button>
       </form>
       {message ? <p>{message}</p> : null}
-      <div class="mt-4">
-        <Link text="Back" href="/" color="secondary" />
-      </div>
-    </>
+    </PageLayout>
   );
 }
