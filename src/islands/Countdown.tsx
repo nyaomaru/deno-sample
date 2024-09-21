@@ -22,7 +22,7 @@ export default function Countdown(props: { target: string }) {
   );
 
   if (secondsLeft <= 0) {
-    return <span>🎉</span>;
+    return <span>🎉You are wonderful!!🎉</span>;
   }
 
   return <span>{timeFmt.format(secondsLeft, "seconds")}</span>;

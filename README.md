@@ -2,6 +2,8 @@
 
 This project is deno with 🍋fresh🍋 sample project
 
+[![Made with Fresh](https://fresh.deno.dev/fresh-badge-dark.svg)](https://fresh.deno.dev)
+
 ## 🚀 Get started
 
 You run below command

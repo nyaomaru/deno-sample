@@ -12,11 +12,11 @@ export function Button(
     <button
       {...props}
       disabled={!IS_BROWSER || props.disabled}
-      class={`px-2 py-1 border-2 rounded ${
+      class={`${
         color === "primary"
           ? "bg-black text-white hover:text-black"
           : "bg-white border-gray-500"
-      } hover:bg-gray-200 transition-colors`}
+      } px-2 py-1 border-2 rounded hover:bg-gray-200 transition-colors`}
     />
   );
 }
