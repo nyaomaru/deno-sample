@@ -24,7 +24,7 @@ export const handler: Handlers<unknown, { data: string }> = {
 };
 
 export default function Home({ data }: PageProps<string>) {
-  const name = nameList[Math.floor(Math.random() * 5)];
+  const name = nameList[Math.floor(Math.random() * nameList.length)];
   const count = useSignal(0);
 
   useCSP((csp) => {
@@ -52,55 +52,56 @@ export default function Home({ data }: PageProps<string>) {
   });
 
   return (
-    <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
-      <img
-        class="my-6"
-        src="/logo.svg"
-        width="128"
-        height="128"
-        alt="the Fresh logo: a sliced lemon dripping with juice"
-      />
-      <div class="my-4 flex flex-col items-center justify-center">
-        <h1 class="text-4xl font-bold">Nyaomaru Deno Sample</h1>
-        <p class="my-4">
-          I am a cat being!!
-        </p>
-      </div>
+    <div class="flex flex-col items-center justify-center bg-gray-100">
+      <header class="flex flex-col items-center mt-10">
+        <img
+          class="mb-6 w-32 h-32"
+          src="/logo.svg"
+          alt="the Fresh logo: a sliced lemon dripping with juice"
+        />
+        <h1 class="text-5xl font-bold text-gray-800">Nyaomaru Deno Sample</h1>
+        <p class="mt-4 text-lg text-gray-600">I am a cat being!!</p>
+      </header>
 
-      <div class="my-4 flex flex-col items-center justify-center">
-        <h2 class="text-2xl font-bold">Counter</h2>
-        <div class="my-4">
-          <Counter count={count}>
-            <p class="mt-4">This text is rendered on the server</p>
-          </Counter>
-        </div>
-      </div>
+      <main class="my-10">
+        <section class="mb-10">
+          <h2 class="text-3xl font-semibold text-gray-800 text-center">
+            Counter
+          </h2>
+          <div class="mt-6 flex flex-col items-center">
+            <Counter count={count}>
+              <p class="mt-4 text-gray-700">
+                This text is rendered on the server
+              </p>
+            </Counter>
+          </div>
+        </section>
 
-      <div class="my-4 flex flex-col items-center justify-center">
-        <h2 class="text-2xl font-bold">Page Buttons</h2>
-        <div class="my-4 flex gap-4">
-          <Link text="About" href="about" />
-          <Link text="Greet" href={`greet/${name}`} />
-          <Link text="Search" href="search" />
-          <Link text="Countdown" href="countdown" />
-        </div>
-        <div class="my-4 flex gap-4">
-          <Link
-            text="Projects"
-            href={`projects/${Math.round(Math.random()) + 1}`}
-          />
-          <Link text="Chart" href="chart" />
-          <Link text="Markdown" href="markdowns/string" />
-          <Link
-            text="Map"
-            href="map"
-          />
-        </div>
-      </div>
+        <section class="mb-10">
+          <h2 class="text-3xl font-semibold text-gray-800 text-center">
+            Page Buttons
+          </h2>
+          <div class="mt-6 flex flex-wrap justify-center gap-4">
+            <Link text="About" href="about" />
+            <Link text="Chart" href="chart" />
+            <Link text="Search" href="search" />
+            <Link text="Countdown" href="countdown" />
+          </div>
+          <div class="my-4 flex gap-4">
+            <Link text="Map" href="map" />
+            <Link
+              text="Projects"
+              href={`projects/${Math.round(Math.random()) + 1}`}
+            />
+            <Link text="Markdown" href="markdowns/string" />
+            <Link text="Greet" href={`greet/${name}`} />
+          </div>
+        </section>
+      </main>
 
-      <p class="my-4">
+      <footer class="my-10 text-gray-600">
         Server response data: <span id="data">{data}</span>
-      </p>
+      </footer>
     </div>
   );
 }
