@@ -52,7 +52,7 @@ export default function Home({ data }: PageProps<string>) {
   });
 
   return (
-    <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <div class="flex flex-col items-center justify-center bg-gray-100">
       <header class="flex flex-col items-center mt-10">
         <img
           class="mb-6 w-32 h-32"
@@ -83,18 +83,18 @@ export default function Home({ data }: PageProps<string>) {
           </h2>
           <div class="mt-6 flex flex-wrap justify-center gap-4">
             <Link text="About" href="about" />
-            <Link text="Greet" href={`greet/${name}`} />
+            <Link text="Chart" href="chart" />
             <Link text="Search" href="search" />
             <Link text="Countdown" href="countdown" />
           </div>
           <div class="my-4 flex gap-4">
+            <Link text="Map" href="map" />
             <Link
               text="Projects"
               href={`projects/${Math.round(Math.random()) + 1}`}
             />
-            <Link text="Chart" href="chart" />
             <Link text="Markdown" href="markdowns/string" />
-            <Link text="Map" href="map" />
+            <Link text="Greet" href={`greet/${name}`} />
           </div>
         </section>
       </main>
