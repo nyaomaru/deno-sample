@@ -3,10 +3,8 @@ import { IS_BROWSER } from "$fresh/runtime.ts";
 import { useState } from "preact/hooks";
 import { ComponentChildren, createContext } from "preact";
 
-// Create a context to hold Leaflet data/functions
 export const LeafletContext = createContext<typeof Leaflet | null>(null);
 
-// LeafletProvider component manages Leaflet loading and context
 export function LeafletProvider(props: { children: ComponentChildren }) {
   if (!IS_BROWSER) {
     return <p>Leaflet must be loaded on the client. No children will render</p>;
