@@ -1,4 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { Heading } from "#src/components/Heading.tsx";
 import { PageLayout } from "#src/components/PageLayout.tsx";
 
 const projects = [{ id: 1, name: "Project 1", stars: 10 }, {
@@ -36,8 +37,12 @@ export default function ProjectPage(props: PageProps<Project>) {
 
   return (
     <PageLayout>
-      <h1 class="text-4xl font-bold">{props.data.name}</h1>
-      <p>{props.data.stars} stars</p>
+      <Heading variant="h1" text={"Project"}></Heading>
+
+      <div class="mt-4">
+        <Heading variant="h2" text={props.data.name}></Heading>
+        <p>{props.data.stars} stars</p>
+      </div>
     </PageLayout>
   );
 }

@@ -2,6 +2,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { extract } from "$std/front_matter/yaml.ts";
 import { CSS, render } from "$gfm";
 import { Head } from "$fresh/runtime.ts";
+import { Heading } from "#src/components/Heading.tsx";
 import { PageLayout } from "#src/components/PageLayout.tsx";
 
 const markdownText = `---
@@ -64,11 +65,14 @@ export default function MarkdownPage({ data }: PageProps<Page | null>) {
       </Head>
       <main>
         <PageLayout>
-          <div>{JSON.stringify(data.data)}</div>
-          <div
-            class="markdown-body"
-            dangerouslySetInnerHTML={{ __html: render(data?.markdown) }}
-          />
+          <Heading variant="h1" text={"Markdown"}></Heading>
+          <div class="mt-4">
+            <div>{JSON.stringify(data.data)}</div>
+            <div
+              class="markdown-body"
+              dangerouslySetInnerHTML={{ __html: render(data?.markdown) }}
+            />
+          </div>
         </PageLayout>
       </main>
     </>
