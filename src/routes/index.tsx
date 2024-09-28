@@ -1,6 +1,7 @@
 import { Handlers, PageProps, RouteConfig } from "$fresh/server.ts";
 import { type ContentSecurityPolicy, useCSP } from "$fresh/runtime.ts";
 import { useSignal } from "@preact/signals";
+import { Heading } from "#src/components/Heading.tsx";
 import { Link } from "#src/components/Link.tsx";
 import Counter from "#src/islands/Counter.tsx";
 
@@ -59,15 +60,16 @@ export default function Home({ data }: PageProps<string>) {
           src="/logo.svg"
           alt="the Fresh logo: a sliced lemon dripping with juice"
         />
-        <h1 class="text-5xl font-bold text-gray-800">Nyaomaru Deno Sample</h1>
-        <p class="mt-4 text-lg text-gray-600">I am a cat being!!</p>
       </header>
 
-      <main class="my-10">
-        <section class="mb-10">
-          <h2 class="text-3xl font-semibold text-gray-800 text-center">
-            Counter
-          </h2>
+      <main class="my-4">
+        <Heading variant="h1" text={"Nyaomaru Deno Sample"}></Heading>
+        <div class="block items-center text-center">
+          <p class="mt-4 text-lg text-gray-600">I am a cat being!!</p>
+        </div>
+
+        <section class="mb-10 text-center">
+          <Heading variant="h2" text={"Counter"}></Heading>
           <div class="mt-6 flex flex-col items-center">
             <Counter count={count}>
               <p class="mt-4 text-gray-700">
@@ -77,17 +79,15 @@ export default function Home({ data }: PageProps<string>) {
           </div>
         </section>
 
-        <section class="mb-10">
-          <h2 class="text-3xl font-semibold text-gray-800 text-center">
-            Page Buttons
-          </h2>
+        <section class="mb-10 text-center">
+          <Heading variant="h2" text={"Page Buttons"}></Heading>
           <div class="mt-6 flex flex-wrap justify-center gap-4">
             <Link text="About" href="about" />
             <Link text="Chart" href="chart" />
             <Link text="Search" href="search" />
             <Link text="Countdown" href="countdown" />
           </div>
-          <div class="my-4 flex gap-4">
+          <div class="my-4 flex flex-wrap justify-center gap-4">
             <Link text="Map" href="map" />
             <Link
               text="Projects"

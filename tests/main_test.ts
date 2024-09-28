@@ -8,6 +8,19 @@ const CONN_INFO: ServeHandlerInfo = {
   remoteAddr: { hostname: "127.0.0.1", port: 8000, transport: "tcp" },
 };
 
+const verifyPageContainsText = async (
+  handler: (req: Request, connInfo?: ServeHandlerInfo) => Promise<Response>,
+  pageUrl: string,
+  expectedText: string,
+) => {
+  const resp = await handler(
+    new Request(`http://127.0.0.1/${pageUrl}`),
+    CONN_INFO,
+  );
+  const text = await resp.text();
+  modAssert.assert(text.includes(expectedText));
+};
+
 Deno.test("HTTP assert test.", async (t) => {
   const handler = await createHandler(manifest, config);
 
@@ -17,20 +30,42 @@ Deno.test("HTTP assert test.", async (t) => {
   });
 
   await t.step("#2 GET /about", async () => {
-    const resp = await handler(
-      new Request("http://127.0.0.1/about"),
-      CONN_INFO,
-    );
-    const text = await resp.text();
-    modAssert.assert(text.includes("This is the about page."));
+    await verifyPageContainsText(handler, "about", "This is the about page.");
   });
 
   await t.step("#3 GET /404", async () => {
-    const resp = await handler(
-      new Request("http://127.0.0.1/404"),
-      CONN_INFO,
+    await verifyPageContainsText(handler, "404", "404 - Page not found");
+  });
+
+  await t.step("#4 GET /chart", async () => {
+    await verifyPageContainsText(handler, "chart", "Chart");
+  });
+
+  await t.step("#5 GET /countdown", async () => {
+    await verifyPageContainsText(
+      handler,
+      "countdown",
+      "The big event is happening",
     );
-    const text = await resp.text();
-    modAssert.assert(text.includes("404 - Page not found"));
+  });
+
+  await t.step("#6 GET /map", async () => {
+    await verifyPageContainsText(handler, "map", "Map");
+  });
+
+  await t.step("#7 GET /search", async () => {
+    await verifyPageContainsText(handler, "search", "Search");
+  });
+
+  await t.step("#8 GET /greet", async () => {
+    await verifyPageContainsText(handler, "greet/test", "test");
+  });
+
+  await t.step("#9 GET /markdown", async () => {
+    await verifyPageContainsText(handler, "markdowns/string", "Markdown");
+  });
+
+  await t.step("#10 GET /project", async () => {
+    await verifyPageContainsText(handler, "projects/1", "Project 1");
   });
 });

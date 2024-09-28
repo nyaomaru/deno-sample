@@ -1,5 +1,6 @@
 import ChartIsland from "#src/islands/Chart.tsx";
 import { ChartColors } from "$fresh_charts/utils.ts";
+import { Heading } from "#src/components/Heading.tsx";
 import { PageLayout } from "#src/components/PageLayout.tsx";
 
 const createRandomNumber = () => {
@@ -13,7 +14,7 @@ const createChartNumberArray = () => {
 export default function Home() {
   return (
     <PageLayout>
-      <h1 class="text-4xl font-bold">Chart</h1>
+      <Heading variant="h1" text={"Chart"}></Heading>
       <div class="mt-4 mx-auto max-w-screen-md">
         <ChartIsland
           type="bar"

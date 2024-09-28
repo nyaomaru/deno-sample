@@ -1,4 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { Heading } from "#src/components/Heading.tsx";
 import { PageLayout } from "#src/components/PageLayout.tsx";
 
 const NAMES = ["Alice", "Bob", "Charlie", "Dave", "Eve", "Frank"];
@@ -21,7 +22,7 @@ export default function Page({ data }: PageProps<Data>) {
   const { results, query } = data;
   return (
     <PageLayout>
-      <h1 class="text-4xl font-bold">Search</h1>
+      <Heading variant="h1" text={"Search"}></Heading>
       <form class="mt-4">
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

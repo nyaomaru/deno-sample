@@ -1,5 +1,6 @@
 import { defineRoute, RouteConfig } from "$fresh/server.ts";
 import { Partial } from "$fresh/runtime.ts";
+import { Heading } from "#src/components/Heading.tsx";
 
 const contents = [
   "This is the documentation page. It should contain all the \n information you need to get started with the project.",
@@ -11,7 +12,7 @@ const loadContent = (id: string) => {
 
   return (
     <article class="prose lg:prose-xl">
-      <h1>Documentation: {id}</h1>
+      <Heading variant="h2" text={`Documentation: ${id}`}></Heading>
       <p>
         {currentContent}
       </p>
