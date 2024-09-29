@@ -6,6 +6,7 @@ import * as modAssert from "https://deno.land/std@0.224.0/assert/assert.ts";
 
 const CONN_INFO: ServeHandlerInfo = {
   remoteAddr: { hostname: "127.0.0.1", port: 8000, transport: "tcp" },
+  completed: Promise.resolve(),
 };
 
 const verifyPageContainsText = async (

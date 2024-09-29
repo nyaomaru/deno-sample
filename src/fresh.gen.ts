@@ -29,7 +29,7 @@ import * as $Countdown from "./islands/Countdown.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $MapIsland from "./islands/MapIsland.tsx";
 import * as $NextContentButton from "./islands/NextContentButton.tsx";
-import { type Manifest } from "$fresh/server.ts";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
